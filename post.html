@@ -2,86 +2,91 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>post</title>
-  <!-- link boostrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>post</title>
+    <!-- link boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- link css -->
-  <link rel="stylesheet" href="assets/CSS/style.css">
+    <!-- link css -->
+    <link rel="stylesheet" href="assets/css/post.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  <!-- link icon -->
-  <link rel="stylesheet" href="font/css/all.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('import/asset/css/trix.css') }}">
+  <script type="text/javascript" src="{{ asset('import/asset/js/trix.umd.min.js') }}"></script> -->
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none !important;
+        }
+    </style>
 </head>
 
-<body>
-  <!-- navbar start -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse fw-bold" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2">
-          <li class="nav-item">
-            <a class="nav-link navbar-brand" aria-current="page" href="">PurpleSnap</a>
-          </li>
-        </ul>
-        <div class="ms-auto me-5 nav-icon">
-          <a href=""><i class="fa-solid fa-house fa-lg"></i></a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- navbar end -->
 
-  <!-- card start -->
-  <!-- header card -->
-  <div class="row">
+<!-- card start -->
+<!-- header card -->
+<div class="col-sm-12 mt-3 mt-sm-0">
     <div class="card">
-      <div class="avatar-picture d-flex">
-        <img src="assets/img/my.jpg" alt="">
-        <div class="Post d-flex align-item-start ms-3">
+        <div class="avatar-picture d-flex">
+            <img src="assets/img/my.jpg" alt="">
+            <div class="Post d-flex align-item-start ms-3">
+            </div>
+            <div class="name">
+                <h5>Yahya</h5>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Kategori
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"></a>Kejuaraan</li>
+                    <li><a class="dropdown-item" href="#"></a>Aspirasi</li>
+                </ul>
+            </div>
+            <div class="ms-auto">
+                <a href=""><i class="bi bi-x-lg"></i></a>
+            </div>
         </div>
-        <div class="name">
-          <h5>Wahyu Anang</h5>
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Kategori
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">privat</a></li>
-            <li><a class="dropdown-item" href="#">public</a></li>
-          </ul>
-        </div>
-        <div class="ms-auto">
-          <a href=""><i class="bi bi-x-lg"></i></a>
-        </div>
-      </div>
 
-      <!-- footer card -->
-      <div>
-        <form class="input ms-4 me-4">
-          <label for="text" class="text-head">Status Update:</label> <br>
-          <input type="text" class="form-border mb-3" placeholder="What do you want to talk about?">
-        </form>
-        <div class="icons ms-4 me-3 d-flex gap-3">
-          <a href=""><i class="bi bi-image"></i></a>
-          <a href=""><i class="bi bi-emoji-smile"></i></a>
-          <a href=""><i class="bi bi-geo-alt"></i></a>
-          <a href=""><i class="bi bi-camera"></i></a>
-          <button type="button" class="post ms-auto me-4 btn">Post</button>
+        <div class="ms-4">
+            <img src="" alt="" id="output" width="200">
         </div>
-      </div>
+        <!-- footer card -->
+        <div>
+            <form method="post" action="/create" class=" ms-4 me-4" enctype="multipart/form-data">
+                <div>
+                    <input id="public_true" type="radio" name="is_public" value="1" checked>
+                    <label for="public_true">Public</label>
+                    <input id="public_false" type="radio" name="is_public" value="0">
+                    <label for="public_false">Privat</label>
+                </div>
+                <label for="text" class="text-head">Status Update:</label> <br>
+                <div class="my-auto">
+                    <input id="body" type="hidden" name="body">
+                    <trix-editor input="body" placeholder="What do you want to talk about?"></trix-editor>
+                </div>
+                <div class="icons mt-3 ms-4 me-3 d-flex gap-3">
+                    <label name="photo" for="photo"><i class="bi bi-image"></i></label>
+                    <input type="file" class="image-upload form-control @error ('photo') is invalid @enderror"
+                        value="{{ old('photo') }}" id="photo" name="photo" accept="photo/*"
+                        onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+
+                    <a href=""><i class="bi bi-emoji-smile"></i></a>
+                    <a href=""><i class="bi bi-geo-alt"></i></a>
+                    <a href=""><i class="bi bi-camera"></i></a>
+                    <button type="submit" class="post ms-auto me-4 btn">Post</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-  <!-- card end -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('trix-file-accept', function (e) {
+        e.preventDefault();
+    })
+</script>
 </body>
 
 </html>

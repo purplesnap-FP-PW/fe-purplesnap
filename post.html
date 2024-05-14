@@ -66,7 +66,7 @@
                 </div>
                 <div class="icons mt-3 ms-4 me-3 d-flex gap-3">
                     <label name="photo" for="photo"><i class="bi bi-image"></i></label>
-                    <input type="file" class="image-upload form-control @error ('photo') is invalid @enderror"
+                    <input type="file" class="image-upload form-control"
                         value="{{ old('photo') }}" id="photo" name="photo" accept="photo/*"
                         onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
 

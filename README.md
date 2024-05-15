@@ -1,6 +1,6 @@
 # PurpleSnap
 
-![PurpleSnap Logo](https://via.placeholder.com/150)
+![PurpleSnap Logo]([https://ibb.co/dQHvpph])
 
 ## Table of Contents
 

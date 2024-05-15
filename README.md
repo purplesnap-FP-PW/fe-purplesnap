@@ -1,6 +1,6 @@
 # PurpleSnap
 
-![PurpleSnap Logo]<a href="https://ibb.co/dQHvpph"><img src="https://i.ibb.co/dQHvpph/Purplesnap-Logo.png" alt="Purplesnap-Logo" border="0"></a>
+<a href="https://ibb.co/dQHvpph"><img src="https://i.ibb.co/dQHvpph/Purplesnap-Logo.png" alt="Purplesnap-Logo" border="0"></a>
 
 ## Table of Contents
 
